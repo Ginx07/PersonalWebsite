@@ -1,35 +1,17 @@
+* {
+  /*Width calculate the same for sections like experience*/
+  box-sizing: border-box;
+}
+
+
 body {
     background-color: slategrey;
     padding: 0;
     margin: 0;
     font-family: 'Hind', 'Courier New', Courier, monospace;
-
+    overflow-x: hidden; /* Hide scrollbar */
 }
 
-/*Work experience tabs*/
-.collapsible {
-  background-color: #777;
-  color: white;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-}
-
-.active, .collapsible:hover {
-  background-color: #555;
-}
-
-.content {
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
-  background-color: #f1f1f1;
-}
-/*Ends work experience*/
 
 #navbar {
     border: 2px red solid;
@@ -87,13 +69,14 @@ h2 {
 
 #projects {
   background-color: bisque;
-  padding: 0px 80px;
+  padding: 0px 1rem;
   font-size: clamp(1rem, 2.5vw, 1.5rem);
   max-width: 60ch;
   justify-self: center;
   display: flex;
   overflow-x: auto;
   gap: 1rem;
+  margin:  clamp(.5rem, 2.5vw, 1.5rem);
 }
 
 #projects > div {
@@ -108,3 +91,92 @@ h2 {
   justify-self: center;
 }
 
+.skills {
+display: flex;
+flex-wrap: wrap;
+gap: 1.5rem;
+max-width: 900px;
+margin: 0 auto;
+justify-content: center;
+padding: 1rem;
+}
+
+.skill {
+  text-align: center;
+}
+
+/*transistion for icon labels*/
+.skill .label {
+  opacity: 0;
+  transition: opacity .4s ease;
+  display: block;
+  font-size: 1rem;
+  font-weight: bold;
+  ;
+}
+
+.skill:hover .label {
+  opacity: 1;
+}
+
+/*Making the icons float*/
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+.skill img {
+  width: 55px;
+  animation: float 3.3s ease-in-out infinite;
+}
+
+/*Setting time variations so icons move at diffent rates*/
+.skill:nth-child(2) img { animation-delay: .2s;}
+.skill:nth-child(3) img { animation-delay: .4s;}
+.skill:nth-child(4) img { animation-delay: .7s;}
+.skill:nth-child(5) img { animation-delay: .15s;}
+.skill:nth-child(6) img { animation-delay: .4s;}
+.skill:nth-child(7) img { animation-delay: .1s;}
+.skill:nth-child(8) img { animation-delay: .5s;}
+.skill:nth-child(9) img { animation-delay: .3s;}
+
+.skill:hover img {
+  animation-play-state: paused;
+  transform: translateY(-10px);
+}
+
+/*Work experience tabs*/
+.experience {
+  width: 100%;
+  max-width: 500px;
+  padding: 0 1rem;
+  justify-self: center;
+}
+
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  display: block;
+  
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.content {
+  padding: 1rem 1.5rem;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  width: 100%;
+}
+/*Ends work experience*/
