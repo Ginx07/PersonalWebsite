@@ -11,7 +11,7 @@
 }
 
 body {
-    background-color: slategrey;
+    background-color: #72826a;
     padding: 0;
     margin: 0;
     font-family: 'Hind', 'Courier New', Courier, monospace;
@@ -20,7 +20,7 @@ body {
 
 
 #navbar {
-    background-color: grey;
+    background-color: rgb(182, 182, 182);
     display: flex;
     justify-content: end;
     gap: 1em;
@@ -30,9 +30,14 @@ body {
 }
 
 #navbar > * {
-    color: aqua;
+    color: #000000;
     list-style: none;
+    background-color: #72826a;
+    padding: 4px 6px;
+    border-radius: 4px;
 }
+
+
 
 #main {
   display: grid;
@@ -45,7 +50,8 @@ body {
 
 #main > h1 {
   font-size: clamp(2rem, 8vw, 5rem);
-  padding-left: 80px;
+  padding: 0 80px;
+  font-weight: bold;
 }
 
 .circle {
@@ -60,10 +66,9 @@ body {
 }
 
 #bio {
-  background-color: aqua;
   padding: 10px 50px;
   font-size: clamp(1rem, 2.5vw, 1.5rem);
-  max-width: 60ch;
+  max-width: 80ch;
   justify-self: center;
 }
 
@@ -73,38 +78,83 @@ h2 {
   margin:  clamp(1rem, 2.5vw, 1.5rem);
 }
 
+.projects-section {
+  max-width: 60ch;
+  margin: 0 auto;
+}
+
+.projects-wrapper { 
+position: relative;
+width: 100vw;
+left: 50%;
+right: 50%;
+margin-left: -50vw; /*part of the side shadows for tiles*/
+margin-right: -50vw;
+padding: 1rem 0;
+overflow: visible;
+}
+
 .projects {
   display: flex;
   padding: 1rem 0;
+  margin: 0 auto;
   font-size: clamp(1rem, 2.5vw, 1.5rem);
   max-width: 60ch;
   justify-self: center;
   gap: 1rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+  scroll-padding: 0 calc(50% - 120px); /*Centers the selected card*/
+  scroll-behavior: smooth;
+  padding-bottom: 1.5rem;
+  /*Stops highlighing text when clicking and scrolling*/
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none; 
+  cursor: default;
 }
 
 /*Custom scrollbar for projects section*/
 .projects::-webkit-scrollbar {
   height: 6px;
+  opacity: 0;
+  transition: opacity .3s ease;
 }
 
 .projects::-webkit-scrollbar-thumb {
-  background: rgb(54, 54, 54);
+  background: rgba(0,0,0,0.3);
   border-radius: 4px;
 }
 
 .projects::-webkit-scrollbar-track {
   background: transparent;
+  margin: 0 2rem;
+}
+.projects:hover::-webkit-scrollbar {
+  opacity: 1;
+}
+
+/*part of hiding scrollbar*/
+.projects:hover::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.3);
 }
 
 .projects > div {
-    flex: 0 0 220px;
+    flex: 0 0 240px;
     scroll-snap-align: start;
-    background: aqua;
     border-radius: 8px;
     padding: 1rem;
+    background-color: rgb(182, 182, 182);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    -webkit-user-select: none;
+   -ms-user-select: none;
+    user-select: none;
+    /*swapping grab cursor*/
+    cursor: url('logos/grab.png') 16 16, auto;
+}
+
+.projects > div:active {
+  cursor: url('logos/grabbing.png') 16 16, auto;
 }
 
 /*Adds hover effect to project cards*/
@@ -115,9 +165,30 @@ h2 {
  } 
 
 .projects > div > img {
-  justify-self: center;
+  align-self: center;
 }
 
+/*Projects shadow code*/
+.projects-wrapper::before,
+.projects-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.projects-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, #72826a, transparent);
+}
+
+.projects-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, #72826a, transparent);
+}
 
 .skills {
 display: flex;
@@ -150,7 +221,7 @@ padding: 1rem;
 /*Making the icons float*/
 @keyframes float {
   0% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  50% { transform: translateY(-10px); }
   100% { transform: translateY(0); }
 }
 
@@ -211,7 +282,7 @@ padding: 1rem;
 
 
 #message-box {
-  background-color: aqua;
+  background-color: rgb(93, 143, 143);
   padding: 1.5rem 1.75rem;
   max-width: 300px;
   margin: 3rem 0 2rem 0;
@@ -248,6 +319,16 @@ border: 2px rgb(255, 0, 0) solid;
   opacity: 0.6;
   cursor: not-allowed;
 }
+
+/*Disabling cursor from changing shapes*/
+#message-box textarea:disabled,
+#message-box input:disabled,
+#message-box div,
+footer p,
+.project {
+  cursor: default;
+}
+
 
 .coming-soon {
 position: absolute;
