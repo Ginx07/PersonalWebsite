@@ -3,9 +3,19 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/*clearing link styling*/
+a, a:visited, a:hover, a:focus, a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
 .page-column {
   width: 100%;
-  max-width: 60ch;
+  max-width: 80ch;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -18,20 +28,37 @@ body {
     overflow-x: hidden; /* Hide scrollbar */
 }
 
-
-#navbar {
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 1rem;
     background-color: rgb(182, 182, 182);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+  }
+
+.nav-icon {
+    height: 32px;
+    width: 32px;
+    object-fit: contain;
+    padding-top: .2rem;
+}
+
+#nav-buttons {
     display: flex;
     justify-content: end;
     gap: 1em;
     font-size: 1em;
-    margin-top: 0;
+    margin: 0;
     padding: 5px;
+    list-style: none;
 }
 
-#navbar > * {
+#nav-buttons > * {
     color: #000000;
-    list-style: none;
     background-color: #72826a;
     padding: 4px 6px;
     border-radius: 4px;
@@ -44,20 +71,19 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   max-width: 1200px;
-  margin: 0 auto;
+  margin:  100px auto;
   padding: 1rem 1.5rem;
 }
 
 #main > h1 {
-  font-size: clamp(2rem, 8vw, 5rem);
+  font-size: clamp(3rem, 10vw, 5rem);
   padding: 0 80px;
   font-weight: bold;
 }
 
 .circle {
-  width: clamp(100px, 20vw, 250px);
-  height: clamp(100px, 20vw, 250px);
-  border-radius: 2px aqua solid;
+  width: clamp(150px, 20vw, 250px);
+  height: clamp(150px, 20vw, 250px);
   background-color: rgb(128, 80, 17);
 
   border-radius: 50%;
@@ -66,8 +92,8 @@ body {
 }
 
 #bio {
-  padding: 10px 50px;
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  margin-top: 20px;
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
   max-width: 80ch;
   justify-self: center;
 }
@@ -116,7 +142,7 @@ overflow: visible;
 
 /*Custom scrollbar for projects section*/
 .projects::-webkit-scrollbar {
-  height: 6px;
+  height: 8px;
   opacity: 0;
   transition: opacity .3s ease;
 }
@@ -286,6 +312,7 @@ padding: 1rem;
   padding: 1.5rem 1.75rem;
   max-width: 300px;
   margin: 3rem 0 2rem 0;
+  margin-left: 1rem;
   border-radius: 8px;
   width: 100%;
   position: relative;
