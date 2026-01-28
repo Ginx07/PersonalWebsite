@@ -5,6 +5,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px; /*Offset for fixed nav bar covering titles*/
 }
 
 /*clearing link styling*/
@@ -26,6 +27,10 @@ body {
     margin: 0;
     font-family: 'Hind', 'Courier New', Courier, monospace;
     overflow-x: hidden; /* Hide scrollbar */
+}
+
+section {
+  margin-top: 4rem;
 }
 
 .nav-bar {
