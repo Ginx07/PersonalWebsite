@@ -14,7 +14,6 @@ for (let i = 0; i < coll.length; i++) {
   });
 }
 
-
 // Draggable horizontal scroll for Projects section
 const slider = document.querySelector('.projects');
 

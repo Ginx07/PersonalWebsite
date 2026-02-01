@@ -25,7 +25,7 @@ body {
     background-color: #72826a;
     padding: 0;
     margin: 0;
-    font-family: 'Hind', 'Courier New', Courier, monospace;
+    font-family: 'Afacad', 'Courier New', Courier, monospace;
     overflow-x: hidden; /* Hide scrollbar */
 }
 
@@ -323,6 +323,10 @@ padding: 1rem;
 .collapsible, .content { border-radius: 0;
 }
 
+.content > *:first-child {
+  margin-top: 0;
+}
+
 
 /*Rounding corners of first and last buttons*/
 .experience button.collapsible:first-of-type {
@@ -346,14 +350,16 @@ padding: 1rem;
   border-right: 1px solid #555;
 }
 
-.content:last-of-type.active {
-  border-bottom: 1px solid #555;
-  border-radius: 0 0 12px 12px;
-}
 
 .collapsible {
     border-top: 1px solid #555;
     border-bottom: 1px solid #555;
+  }
+
+  /* When last tab is open, give the content the bottom border */
+  .experience button.collapsible:last-of-type.active + .content {
+    border-bottom: 1px solid #555;
+    border-radius: 0 0 12px 12px;
   }
 
 /*Ends Tech Journey*/
