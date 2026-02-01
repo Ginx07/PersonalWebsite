@@ -22,19 +22,3 @@ CSS3
 JavaScript
 
 Git & GitHub
-
-(Optional) Any libraries or tools you used
-
-📸 Screenshots
-(Add 1–2 small screenshots — more on that below)
-
-🚀 Live Demo
-Link to your GitHub Pages site once deployed.
-
-📂 Running Locally
-bash
-git clone https://github.com/YOURNAME/portfolio.git
-cd portfolio
-open index.html
-📄 License
-MIT (optional)
