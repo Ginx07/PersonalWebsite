@@ -100,3 +100,14 @@ document.getElementById("copy-email").addEventListener("click", () => {
   navigator.clipboard.writeText("garanj@proton.me");
   alert("Email copied!");
 });
+
+// Bounce effect for scrolling on projects section
+document.querySelectorAll('.project-card').forEach(card => {
+  card.addEventListener('click', () => {
+    card.scrollIntoView({
+      behavior: 'smooth',
+      inline: 'center',
+      block: 'nearest'
+    });
+  });
+});
